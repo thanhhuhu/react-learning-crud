@@ -82,4 +82,8 @@
 
 .button-setting:hover {
     color: #f5222d;
-}
+}.no-data{
+    font-family: monospace;
+    text-align: center;
+    color: red;
+ }

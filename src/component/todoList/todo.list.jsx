@@ -43,6 +43,7 @@ const TodoList = () =>{
         setSelectedTodo(todo);
         setIsModalOpen(true);
     };
+
     return (
 
         <div className={"todo-container"}>

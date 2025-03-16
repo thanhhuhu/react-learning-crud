@@ -25,7 +25,9 @@ const TodoData = ({todo , handleDelete, showModal}) => {
                         </div>
                     ))
                 ) :(
-                    <p>no data</p>
+                    <p className={"no-data"}>
+                        NO DATA
+                    </p>
                 )
                 }
             </div>

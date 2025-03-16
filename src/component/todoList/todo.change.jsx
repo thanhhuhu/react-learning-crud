@@ -12,7 +12,7 @@ const TodoChange = ({selectedTodo, isModalOpen, setIsModalOpen, handleSave}) =>{
     const handleOk = () => {
         if (!editedTodo.trim ())
         {
-            alert("no field")
+            alert("No such data")
             return ;
         }
         handleSave({...selectedTodo,title: editedTodo})

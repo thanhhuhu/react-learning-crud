@@ -6,12 +6,12 @@ const TodoInput = ({addNewTodo, listTodo}) => {
     const handleClick = () => {
         if ( !todo.trim())
         {
-            alert ("no field in input")
+            alert ("No data in input")
             return;
         }
         const isDuplicate = listTodo.some(item => item.title.toLowerCase() === todo.trim().toLowerCase());
         if (isDuplicate) {
-            alert("This task already exists!");
+            alert("This field already exists!");
             return;
         }
         addNewTodo({
@@ -20,16 +20,31 @@ const TodoInput = ({addNewTodo, listTodo}) => {
         })
         setTodo("")
     }
+    // Thay chữ đầu tiên mỗi lần nhập vào là uppercase
+    const handleChange = (event) => {
+        let value = event.target.value;
+        if (value.length > 0){
+            value = value.charAt(0).toUpperCase() + value.slice(1);
+        }
+        setTodo(value)
+    }
     return (
         <div className="todo-input">
            <Input
                 placeholder={"Enter todo"}
                 value={todo}
-                onChange = {event => setTodo(event.target.value)}
+               // Thay chữ đầu tiên mỗi lần nhập vào là uppercase
+                onChange = {handleChange}
+                onKeyDown = {(event) => {
+                    if ( event.key === "Enter" ) {
+                        handleClick();
+                    }
+                }}
            />
             <Button
                 type="primary"
                 onClick={handleClick}
+
             >Add</Button>
         </div>
     );
